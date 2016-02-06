@@ -14,6 +14,9 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
+  a, b, c =  [a, b, c].sort
+  raise TriangleError, "Side lengths must be greater than 0" if a <= 0
+  raise TriangleError, "Two sides cannot be <= a third side" if a + b <= c
   if a == b && b == c
     :equilateral
   elsif a == b || a == c || b == c
@@ -25,4 +28,5 @@ end
 
 # Error class used in part 2.  No need to change this code.
 class TriangleError < StandardError
+ 
 end
